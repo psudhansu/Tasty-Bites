@@ -1,0 +1,118 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dish List</title>
+</head>
+<body>
+    <h1>Dish List</h1>
+    <ul>
+        {% for dish in dishes %}
+        <li>
+            {{ dish.dish_name }} - ${{ dish.price }} (Availability: {{ dish.availability|yesno:"Yes,No" }})
+            [<a href="{% url 'edit_dish' dish.id %}">Edit</a>]
+            [<a href="{% url 'delete_dish' dish.id %}">Delete</a>]
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_dish' %}">Add New Dish</a>
+    <a href="{% url 'take_order' %}">Take order</a>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dish List</title>
+    <!-- Include any necessary CSS for styling here -->
+    <style>
+        /* Add your CSS styling for card format here */
+        /* .dish-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        } */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Card styles */
+        main {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .dish-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+
+        .dish-card h2 {
+            margin-top: 0;
+        }
+
+        .delete-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .edit-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tasty</h1>
+        <a href="{% url 'add_dish' %}">Add New Dish</a>
+        <a href="{% url 'take_order' %}">Take Order</a>
+    </header>
+    <main>
+        {% for dish in dishes %}
+        <div class="dish-card">
+            <h2>{{ dish.dish_name }}</h2>
+            <p>Price: ${{ dish.price }}</p>
+            <p>Availability: {{ dish.availability|yesno:"Yes,No" }}</p>
+            <a class="edit-button" href="{% url 'edit_dish' dish.id %}">Edit</a>
+            <a class="delete-button" href="{% url 'delete_dish' dish.id %}">X</a>
+        </div>
+        {% endfor %}
+    </main>
+</body>
+</html>
+
