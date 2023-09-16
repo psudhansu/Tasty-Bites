@@ -1,4 +1,4 @@
-<h1 align="center">Tasty</h1>
+<h1 align="center">Tasty Bites</h1>
 
 <p align="center">
   <img src="https://github.com/psudhansu/Zesty-Zomato/assets/119405182/22b7f77c-040b-442b-80c8-a5fa8bf2554f)" alt="Description of the image" style="display: block; margin: 0 auto;">
